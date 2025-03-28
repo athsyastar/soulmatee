@@ -1,2 +1,2 @@
 # soulmatee
-love
+https://athsyastar.github.io/soulmatee/

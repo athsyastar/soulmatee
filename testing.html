@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Soulmate?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        body {
+            background: url('Premium Vector _ Blue sky cloud in pixel art style.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            padding-top: 10%;
+            cursor: url('heart_cursor.png'), auto;
+            color: #ff85a2;
+        }
+        h1 {
+            color: #ff85a2;
+        }
+        .button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Press Start 2P', cursive;
+        }
+        .yes {
+            background-color: #ff85a2;
+            color: white;
+        }
+        .no {
+            background-color: #aaa;
+            color: white;
+            position: absolute;
+        }
+        .letter-container {
+            display: none;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 20px;
+            border: 3px solid darkblue;
+            margin-top: 20px;
+            width: 60%;
+            margin: auto;
+        }
+        .letter-container img {
+            width: 100%;
+            border-radius: 20%;
+        }
+        .choose-date {
+            display: none;
+            background-color: #ff85a2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my soulmate forever? 💕</h1>
+    <button class="button yes" id="yesBtn">Yes Ofc I dooo</button>
+    <button class="button no" id="noBtn">Hmm no</button>
+    
+    <div class="letter-container" id="letter">
+        <img src="cute.png" alt="My Letter to You">
+        <br><br>
+        <a href="choosedate.html"><button class="button choose-date">Choose Date</button></a>
+    </div>
+    
+    <script>
+        document.getElementById("noBtn").onmouseover = function() {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            this.style.left = x + "px";
+            this.style.top = y + "px";
+        };
+        
+        document.getElementById("yesBtn").onclick = function() {
+            document.getElementById("letter").style.display = "block";
+            document.querySelector(".choose-date").style.display = "inline-block";
+        };
+    </script>
+</body>
+</html>

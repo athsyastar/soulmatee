@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Soulmate</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5e1d3; /* Beige background */
+            color: #d18f8f; /* Pink text */
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d18f8f; /* Pink button */
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #b76a6a; /* Darker pink on hover */
+        }
+
+        .no-button {
+            position: relative;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+            animation: heart-trail 1s infinite;
+        }
+
+        @keyframes heart-trail {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+            100% { transform: scale(1); }
+    </style>
+</head>
+<body>
+    <div class="container" id="page1">
+        <h1>Will you be my soulmate forever?</h1>
+        <button id="yesButton">Yes, Ofc I dooo</button>
+        <button id="noButton" class="no-button">Hmm, No</button>
+    </div>
+
+    <div class="container" id="page2" style="display: none;">
+        <h1>Choose a date type:</h1>
+        <button class="date-button">Movie</button>
+        <button class="date-button">Picnic</button>
+        <button class="date-button">Park Outdoor</button>
+        <button class="date-button">Dinner</button>
+        <button class="date-button">Beach</button>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+
+        yesButton.addEventListener('click', () => {
+            page1.style.display = 'none';
+            page2.style.display = 'flex';
+        });
+
+        noButton.addEventListener('mouseover', () => {
+            const randomX = Math.random() * (window.innerWidth - 100);
+            const randomY = Math.random() * (window.innerHeight - 100);
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        });
+
+        // Heart trail animation
+        document.addEventListener('mousemove', (e) => {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = `${e.pageX}px`;
+            heart.style.top = `${e.pageY}px`;
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
